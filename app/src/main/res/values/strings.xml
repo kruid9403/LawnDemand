@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Lawn Demand</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_property">New Property</string>
+    <string name="street_address">Street Address</string>
+    <string name="city">City</string>
+    <string name="zip">Zip</string>
+    <string name="state">State</string>
+    <string name="gps_button">Gps Button</string>
+    <string name="get_details">Get Details</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password...</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="home_image">Home Image</string>
+    <string name="stripe_key">pk_test_51J72l1EILgHcZBocdTJYTznoG8moNuURFXyjXrSBDxwD30C9ADyvtBt9XybV4M4oZNTOrw0Jcfpx7wKxsIkH1Neh003mgzkXcM</string>
+    <string name="mow_my_lawn">Mow My Lawn For: $%1$s</string>
+    <string name="_35">$35</string>
+    <string name="select_payment">Select Payment</string>
+    <string name="mowing_service">My grass is under 10 inches in length.</string>
+    <string name="confirm_trimming">Service includes trimming around buildings, trees, landscaping, and fence lines</string>
+    <string name="confirm_edging">Service includes edging around sidewalks and driveways</string>
+    <string name="confirm_blow">Service includes blowing clippings off of sidewalks, driveways, patios, and the road</string>
+    <string name="confirm_pets">Any pets on my property are or will be confined and safe from the mowing area</string>
+    <string name="confirm_locks">My back yard is accessible and a gate is unlocked if I have a fence</string>
+    <string name="order_service">Order Service</string>
+    <string name="address_sample">123 Main St</string>
+    <string name="lot_size_sample">5000 sqft</string>
+    <string name="service">Service</string>
+    <string name="cancel">Cancel</string>
+    <string name="price">$35</string>
+    <string name="status">Status</string>
+    <string name="waiting_for_provider">Waiting for Provider</string>
+    <string name="order_history">Order History</string>
+</resources>

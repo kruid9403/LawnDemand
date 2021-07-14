@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/screen_padding"
+    android:layout_marginBottom="@dimen/screen_padding"
+    android:background="@drawable/et_background">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/history_row_img"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/et_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/history_row_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address_sample"
+        android:layout_marginStart="@dimen/et_margin_top"
+        app:layout_constraintStart_toEndOf="@id/history_row_img"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/history_row_lot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lot_size_sample"
+        android:layout_marginTop="@dimen/et_margin_top"
+        android:layout_marginStart="@dimen/et_margin_top"
+        app:layout_constraintStart_toEndOf="@id/history_row_img"
+        app:layout_constraintTop_toBottomOf="@id/history_row_address"/>
+
+    <TextView
+        android:id="@+id/history_row_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:layout_marginTop="@dimen/et_margin_top"
+        android:layout_marginStart="@dimen/et_margin_top"
+        app:layout_constraintStart_toEndOf="@id/history_row_img"
+        app:layout_constraintTop_toBottomOf="@id/history_row_lot"/>
+
+    <TextView
+        android:id="@+id/history_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:layout_marginTop="@dimen/et_margin_top"
+        android:layout_marginStart="@dimen/et_margin_top"
+        app:layout_constraintStart_toEndOf="@id/history_row_img"
+        app:layout_constraintTop_toBottomOf="@id/history_row_price"/>
+
+    <TextView
+        android:id="@+id/history_row_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textColor="?attr/colorOnSecondary"
+        android:background="@drawable/et_background"
+        android:backgroundTint="?attr/colorPrimary"
+        android:padding="@dimen/home_row_text_view_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

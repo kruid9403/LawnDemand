@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/screen_padding"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ordering.QuoteFragment">
+
+    <ImageView
+        android:id="@+id/quote_image"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:background="@drawable/et_background"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/home_image" />
+
+    <TextView
+        android:id="@+id/quote_street"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123 main"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@+id/quote_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/quote_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tomball"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/quote_street"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/quote_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TX"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/quote_city"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/quote_zip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="77375"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/quote_state"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/quote_lot_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5000 sqft"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/quote_zip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/quote_price_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quote"
+        android:gravity="center"
+        android:textColor="?attr/colorOnPrimary"
+        android:background="@drawable/et_background"
+        android:backgroundTint="?attr/colorPrimary"
+        android:padding="@dimen/et_padding"
+        app:layout_constraintTop_toBottomOf="@id/quote_lot_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <CheckBox
+        android:id="@+id/quote_top_provider_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guarantee a top provider"
+        app:layout_constraintBottom_toTopOf="@id/quote_price_btn"
+        app:layout_constraintTop_toBottomOf="@id/quote_lot_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

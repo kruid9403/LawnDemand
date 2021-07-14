@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/screen_padding"
+    tools:context=".ui.properties.NewPropertyFragment">
+
+    <ProgressBar
+        android:id="@+id/new_property_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/new_property_gps_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_gps"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toTopOf="@id/new_property_state"
+        app:layout_constraintBottom_toBottomOf="@id/new_property_zip"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/gps_button" />
+
+    <EditText
+        android:id="@+id/new_property_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/street_address"
+        android:autofillHints="postalAddress"
+        android:inputType="textMultiLine|textPostalAddress|textCapWords"
+        android:textColor="?attr/colorOnSecondary"
+        android:background="@drawable/et_background"
+        android:padding="@dimen/et_padding"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/new_property_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"
+        android:autofillHints="postalAddress"
+        android:inputType="textMultiLine|textCapWords"
+        android:textColor="?attr/colorOnSecondary"
+        android:background="@drawable/et_background"
+        android:padding="@dimen/et_padding"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_street"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/new_property_state"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/state"
+        android:autofillHints="postalAddress"
+        android:inputType="textCapCharacters"
+        android:textColor="?attr/colorOnSecondary"
+        android:background="@drawable/et_background"
+        android:padding="@dimen/et_padding"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_city"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/new_property_zip"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/zip"
+        android:autofillHints="postalCode"
+        android:inputType="textMultiLine|number"
+        android:textColor="?attr/colorOnSecondary"
+        android:background="@drawable/et_background"
+        android:padding="@dimen/et_padding"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_state"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/new_property_details_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_details"
+        android:backgroundTint="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/new_property_zip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/new_property_image"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:background="@drawable/et_background"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_details_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/home_image" />
+
+    <TextView
+        android:id="@+id/new_property_street_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123 main"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@+id/new_property_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/new_property_city_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tomball"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_street_verify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/new_property_state_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TX"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_city_verify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/new_property_zip_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="77375"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_state_verify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/new_property_lot_size_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5000 sqft"
+        android:layout_marginTop="@dimen/et_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/new_property_zip_verify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/new_property_set_property_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Property"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
