@@ -202,16 +202,22 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
 
     private fun uploadOrder(){
 
-        val order = OrderObject(uid, property.imgSrc, System.currentTimeMillis(), lot, property.address?.streetAddress!!,
-        property.address?.city!!, property.address?.state!!, property.address?.zipcode!!, topProvider,
-        property.latitude, property.longitude, price, null, null, null)
+        val order = OrderObject(uid, "", property.imgSrc, System.currentTimeMillis(), lot,
+            property.address?.streetAddress!!, property.address?.city!!, property.address?.state!!,
+            property.address?.zipcode!!, topProvider, property.latitude, property.longitude, price,
+            "", "", "")
 
         val orderDatabase = Firebase.firestore
             .collection("orders")
 
         orderDatabase.add(order).addOnSuccessListener {
             documentId = it.id
-            confirmPayment(selectedPaymentMethod.id!!)
+            val orderUpdate = OrderObject(uid, documentId, property.imgSrc, System.currentTimeMillis(), lot, property.address?.streetAddress!!,
+                property.address?.city!!, property.address?.state!!, property.address?.zipcode!!, topProvider,
+                property.latitude, property.longitude, price, "", "", "")
+            orderDatabase.document(documentId).set(orderUpdate).addOnSuccessListener {
+                confirmPayment(selectedPaymentMethod.id!!)
+            }
         }.addOnFailureListener {
             progressBar.visibility = View.GONE
             Toast.makeText(requireContext(), "Please try again", Toast.LENGTH_SHORT).show()
@@ -302,7 +308,7 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
                     StripeIntent.Status.Succeeded -> {
                         Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
                         progressBar.visibility = View.GONE
-                        findNavController().navigate(R.id.action_confirmPurchaseFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_confirmPurchaseFragment_to_orderHistoryFragment)
                     }
                     StripeIntent.Status.RequiresPaymentMethod -> {
                         Toast.makeText(requireContext(), "Payment Failed", Toast.LENGTH_SHORT)

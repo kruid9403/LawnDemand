@@ -104,7 +104,8 @@ class LogInFragment : Fragment(), View.OnClickListener {
                 auth.signInWithEmailAndPassword(email, pass).addOnSuccessListener {
                     val uid = FirebaseAuth.getInstance().uid.toString()
                     val data = hashMapOf(
-                        "uid" to uid
+                        "uid" to uid,
+                        "email" to auth.currentUser?.email.toString()
                     )
                     Firebase.firestore.collection("customers").document(uid).set(data, SetOptions.merge())
                     findNavController().navigate(R.id.action_logInFragment_to_homeFragment)

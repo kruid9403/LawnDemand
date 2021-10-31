@@ -17,18 +17,18 @@ class HistoryAdapter(val context: Context, private val orderList: MutableList<Or
     RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun bind(order: OrderObject){
+        fun bind(order: OrderObject, position: Int){
             itemView.findViewById<TextView>(R.id.history_row_address).text = order.streetAddress
             itemView.findViewById<TextView>(R.id.history_row_lot).text = "${order.lotSize} sqft"
-            if (order.status != "In Progress" && order.status != "Completed"){
-                itemView.findViewById<TextView>(R.id.history_status).text = context.getString(R.string.waiting_for_provider)
+            if (order.completed != null && order.completed != "null"){
+                itemView.findViewById<TextView>(R.id.history_status).text = "${order.completed}"
             }else {
-                itemView.findViewById<TextView>(R.id.history_status).text = "${order.status}"
+                itemView.findViewById<TextView>(R.id.history_status).text = context.getString(R.string.waiting_for_provider)
             }
             itemView.findViewById<TextView>(R.id.history_row_price).text = DoMath().convertToDollars(order.price)
 
             itemView.findViewById<TextView>(R.id.history_row_cancel).setOnClickListener {
-                action.cancelOrder(order)
+                action.cancelOrder(order, position)
             }
 
             val view = itemView.findViewById<CircleImageView>(R.id.history_row_img)
@@ -37,7 +37,7 @@ class HistoryAdapter(val context: Context, private val orderList: MutableList<Or
     }
 
     interface OrderClicked{
-        fun cancelOrder(order: OrderObject)
+        fun cancelOrder(order: OrderObject, position: Int)
     }
 
 
@@ -49,7 +49,7 @@ class HistoryAdapter(val context: Context, private val orderList: MutableList<Or
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val order = orderList[position]
-        holder.bind(order)
+        holder.bind(order, position)
     }
 
     override fun getItemCount(): Int {

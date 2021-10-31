@@ -68,8 +68,8 @@
         android:label="fragment_confirm_purchase"
         tools:layout="@layout/fragment_confirm_purchase" >
         <action
-            android:id="@+id/action_confirmPurchaseFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_confirmPurchaseFragment_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderHistoryFragment"

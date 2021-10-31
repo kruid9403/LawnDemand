@@ -2,10 +2,10 @@ package com.jeremykruid.lawndemand.functions
 
 class DoMath {
     fun getPrice(lotSize: Int): Double{
-        var price = 0.0
+        var price: Double
         when(lotSize){
              in 1..2000 ->{
-                 price = 25.0
+                 price = 27.0
             }
             in 2001..3000 -> {
                 price = 30.0

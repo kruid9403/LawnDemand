@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/drawable/et_background.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/drawable/ic_gps.xml" value="0.2128205128205128" />
-        <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/activity_main.xml" value="0.14447463768115942" />
+        <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/fragment_confirm_purchase.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/fragment_home.xml" value="0.14447463768115942" />
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/fragment_log_in.xml" value="0.18" />
@@ -16,6 +16,7 @@
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/home_recycler_row.xml" value="0.22" />
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/layout/row_order_history_recycler.xml" value="0.18432971014492755" />
         <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/menu/bottom_nav.xml" value="0.2" />
+        <entry key="..\:/Users/kruid/AndroidStudioProjects/LawnDemand/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11354166666666667" />
       </map>
     </option>
   </component>

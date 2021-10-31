@@ -2,6 +2,7 @@ package com.jeremykruid.lawndemand.model
 
 class OrderObject {
     var uid: String = ""
+    var orderId: String = ""
     var imgUrl: String= ""
     var orderDate: Long = 0
     var lotSize: Int = 0
@@ -13,16 +14,16 @@ class OrderObject {
     var lat: Double = 0.0
     var lon: Double = 0.0
     var price: Double = 0.0
-    var status: String? = ""
-    var completed: Long? = 0
-    var provider: String? = ""
+    var status: String = ""
+    var completed: String = ""
+    var provider: String = ""
 
     constructor()
-    constructor(
-        uid: String, imgUrl: String, orderDate: Long, lotSize: Int, streetAddress: String,
+    constructor(uid: String, orderId: String, imgUrl: String, orderDate: Long, lotSize: Int, streetAddress: String,
         city: String, state: String, zip: String, topProvider: Boolean, lat: Double, lon: Double,
-        price: Double, status: String?, completed: Long?, provider: String?){
+        price: Double, status: String, completed: String, provider: String){
         this.uid = uid
+        this.orderId = orderId
         this.imgUrl = imgUrl
         this.orderDate = orderDate
         this.lotSize = lotSize
