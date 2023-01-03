@@ -17,7 +17,7 @@
     <string name="sign_out">Sign Out</string>
     <string name="home_image">Home Image</string>
     <string name="stripe_key">pk_test_51J72l1EILgHcZBocdTJYTznoG8moNuURFXyjXrSBDxwD30C9ADyvtBt9XybV4M4oZNTOrw0Jcfpx7wKxsIkH1Neh003mgzkXcM</string>
-    <string name="mow_my_lawn">Mow My Lawn For: $%1$s</string>
+    <string name="mow_my_lawn">One Time Service For: $%1$s</string>
     <string name="_35">$35</string>
     <string name="select_payment">Select Payment</string>
     <string name="mowing_service">My grass is under 10 inches in length.</string>

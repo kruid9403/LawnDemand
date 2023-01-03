@@ -20,7 +20,7 @@ class HomeAdapter(val context: Context, private val propertyList: MutableList<Pr
             itemView.findViewById<TextView>(R.id.home_row_address).text = property.address?.streetAddress
             itemView.findViewById<TextView>(R.id.home_row_lot).text = property.resoFacts?.lotSize
 
-            itemView.findViewById<TextView>(R.id.home_row_get_service).setOnClickListener {
+            itemView.setOnClickListener {
                 action.getQuotes(property)
             }
 

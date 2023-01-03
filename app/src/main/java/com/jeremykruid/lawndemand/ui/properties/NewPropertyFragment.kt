@@ -74,7 +74,7 @@ class NewPropertyFragment : Fragment(), View.OnClickListener {
 
     private fun updateUI() {
         val address = Geocoder(requireContext(), Locale.getDefault()).getFromLocation(lat, lon, 5)
-        val split = address[0].getAddressLine(0).split(",")
+        val split = address?.get(0)?.getAddressLine(0)?.split(",")!!
         streetEdit.setText(split[0])
         cityEdit.setText(split[1])
         val stateZip = split[2].split(" ")

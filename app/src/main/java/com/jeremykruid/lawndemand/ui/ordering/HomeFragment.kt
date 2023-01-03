@@ -15,15 +15,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jeremykruid.lawndemand.R
+import com.jeremykruid.lawndemand.databinding.FragmentHomeBinding
 import com.jeremykruid.lawndemand.functions.adapters.HomeAdapter
 import com.jeremykruid.lawndemand.model.PropertyObject
 
 class HomeFragment : Fragment(), View.OnClickListener, HomeAdapter.PropertyClicked {
 
-    private lateinit var thisView: View
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var fab: FloatingActionButton
     private lateinit var auth: FirebaseAuth
-    private lateinit var recycler: RecyclerView
     private lateinit var adapter: HomeAdapter
 
     private var propertyList: ArrayList<PropertyObject> = ArrayList()
@@ -33,7 +33,7 @@ class HomeFragment : Fragment(), View.OnClickListener, HomeAdapter.PropertyClick
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        thisView = inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
 
         initViews()
 
@@ -43,7 +43,7 @@ class HomeFragment : Fragment(), View.OnClickListener, HomeAdapter.PropertyClick
 
         setRecycler()
 
-        return thisView
+        return binding.root
     }
 
     private fun getProperties() {
@@ -63,8 +63,8 @@ class HomeFragment : Fragment(), View.OnClickListener, HomeAdapter.PropertyClick
 
     private fun setRecycler() {
         adapter = HomeAdapter(requireContext(), propertyList, this)
-        recycler.layoutManager = LinearLayoutManager(requireContext())
-        recycler.adapter = adapter
+        binding.homePropertyRecycler.layoutManager = LinearLayoutManager(requireContext())
+        binding.homePropertyRecycler.adapter = adapter
     }
 
     private fun checkAuth() {
@@ -84,9 +84,7 @@ class HomeFragment : Fragment(), View.OnClickListener, HomeAdapter.PropertyClick
     }
 
     private fun initViews(){
-        fab = thisView.findViewById(R.id.home_fab)
-        fab.setOnClickListener(this)
-        recycler = thisView.findViewById(R.id.home_property_recycler)
+        binding.homeFab.setOnClickListener(this)
     }
 
     override fun getQuotes(property: PropertyObject) {

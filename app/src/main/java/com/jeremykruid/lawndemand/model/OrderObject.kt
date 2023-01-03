@@ -20,8 +20,8 @@ class OrderObject {
 
     constructor()
     constructor(uid: String, orderId: String, imgUrl: String, orderDate: Long, lotSize: Int, streetAddress: String,
-        city: String, state: String, zip: String, topProvider: Boolean, lat: Double, lon: Double,
-        price: Double, status: String, completed: String, provider: String){
+                city: String, state: String, zip: String, topProvider: Boolean, lat: Double, lon: Double,
+                price: Double, status: String, completed: String, provider: String){
         this.uid = uid
         this.orderId = orderId
         this.imgUrl = imgUrl

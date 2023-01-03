@@ -3,8 +3,8 @@ package com.jeremykruid.lawndemand.ui.ordering
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -173,9 +173,9 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
                                 if (data.isPaymentReadyToCharge) {
                                     Log.d("PaymentSession", "Ready to charge")
 
-                                    data.paymentMethod?.let {
-                                        Log.d("PaymentSession", "PaymentMethod $it selected")
-                                        selectedPaymentMethod = it
+                                    data.paymentMethod?.let { paymentMethod ->
+                                        Log.d("PaymentSession", "PaymentMethod $paymentMethod selected")
+                                        selectedPaymentMethod = paymentMethod
                                         Toast.makeText(requireContext(), "Payment Method Selected", Toast.LENGTH_SHORT).show()
 
                                         selectPayment.text = getString(R.string.order_service)
@@ -184,11 +184,11 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
                             }
 
                             override fun onCommunicatingStateChanged(isCommunicating: Boolean) {
-                                Log.d("PaymentSession",  "isCommunicating $isCommunicating")
+//                                Log.d("PaymentSession",  "isCommunicating $isCommunicating")
                             }
 
                             override fun onError(errorCode: Int, errorMessage: String) {
-                                Log.e("PaymentSession",  "onError: $errorCode, $errorMessage")
+//                                Log.e("PaymentSession",  "onError: $errorCode, $errorMessage")
                             }
                         })
                     paymentSession.presentPaymentMethodSelection()
@@ -210,15 +210,15 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
         val orderDatabase = Firebase.firestore
             .collection("orders")
 
-        orderDatabase.add(order).addOnSuccessListener {
-            documentId = it.id
+        orderDatabase.add(order).addOnSuccessListener { doc ->
+            documentId = doc.id
             val orderUpdate = OrderObject(uid, documentId, property.imgSrc, System.currentTimeMillis(), lot, property.address?.streetAddress!!,
                 property.address?.city!!, property.address?.state!!, property.address?.zipcode!!, topProvider,
                 property.latitude, property.longitude, price, "", "", "")
             orderDatabase.document(documentId).set(orderUpdate).addOnSuccessListener {
                 confirmPayment(selectedPaymentMethod.id!!)
             }
-        }.addOnFailureListener {
+        }.addOnFailureListener { _ ->
             progressBar.visibility = View.GONE
             Toast.makeText(requireContext(), "Please try again", Toast.LENGTH_SHORT).show()
         }
@@ -258,11 +258,11 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
 
                         if (amount == "0") {
                             Log.d("payment", "Create paymentIntent returns $clientSecret")
-                            clientSecret.let {
+                            clientSecret.let { any ->
                                 stripe.confirmPayment(
                                     this, ConfirmPaymentIntentParams.createWithPaymentMethodId(
                                         paymentMethodId,
-                                        (it.toString())
+                                        (any.toString())
                                     )
                                 )
                             }
@@ -277,12 +277,12 @@ class ConfirmPurchaseFragment : Fragment(), CompoundButton.OnCheckedChangeListen
                                     Toast.LENGTH_SHORT).show()
                             }else if (value?.data?.get(documentId).toString() == "false"){
                                 progressBar.visibility = View.GONE
-                                Log.e("Order failed", "order failed")
+//                                Log.e("Order failed", "order failed")
                             }
                         }
                     } else {
                         progressBar.visibility = View.GONE
-                        Log.e("payment", "Current payment intent : null")
+//                        Log.e("payment", "Current payment intent : null")
                     }
                 }
             }
